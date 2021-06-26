@@ -1,0 +1,164 @@
+<style>
+
+  #navtitle{
+    background-color: royalblue;
+    height:15%;
+    width:20%;
+    color: white;
+    position:fixed;
+    margin:-0.6%;
+    border-bottom:0px solid white;
+  }
+
+  #title{
+    font-family: "Berlin Sans FB";
+    font-size: 80px;
+    text-align: center;
+    padding: 0px;
+    border:0px;
+    margin:0px;
+  }
+
+  #nav{
+    list-style-type: none;
+    margin-left: -0.6%;
+    margin-top:7%;
+    padding: 0;
+    width: 20%;
+    background-color: royalblue;
+    height:85%;
+    position:fixed;
+  }
+
+  .navitems a{
+    color:white;
+    text-align: center;
+    display:block;
+    padding: 8%;
+    font-family: Berlin Sans FB;
+    font-size: 24px;
+    text-decoration: none;
+    border:0px solid white;
+  }
+
+  .navitems a:hover{
+    background-color: #6585e7;
+    color: white;
+  }
+
+  #bdycontent{
+    width:80%;
+    height:100%;
+    background-color: #5f91ec;
+    margin-top: 4%;
+    margin-left:19.5%;
+    padding:0;
+    position:fixed;
+    overflow: auto;
+  }
+
+  #topnav{
+    width:80%;
+    height:10%;
+    background-color: royalblue;
+    position: fixed;
+    margin-left:19.5%;
+    margin-top:-0.6%;
+  }
+
+  #welcome{
+    color:white;
+    font-family: Calibri;
+    margin-top: 1.5%;
+    margin-left:85%;
+  }
+
+  #welcome a{
+    color:white;
+    font-family: Calibri;
+    margin-left: 15%;
+  }
+
+
+  input[type=text],input[type=email],input[type=date],input[type=password]{
+    font-family:Sans-serif;
+    width: 100%;
+    padding-top: 12px ;
+    padding-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    font-family:Sans-serif;
+    font-size: 18px;
+    width: 90%;
+    background-color: dodgerblue;
+    color: white;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-left: 40px ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+</style>
+
+
+
+<div id="navtitle">
+  <p id="title"><u>Evento</u></p>
+</div>
+
+<ul id="nav">
+  <li class="navitems"><a routerLink="/dashboard">New Project</a></li>
+  <li class="navitems"><a routerLink="/myprojects">My Projects</a></li>
+  <li class="navitems"><a routerLink="/myprofile">My Profile</a></li>
+</ul>
+
+<div id="topnav">
+  <div id="welcome">
+    Welcome {{username}}
+    <br><a routerLink="">Logout</a>
+  </div>
+</div>
+
+
+<!-- All other panels will be displayed within this div container -->
+
+
+<div id="bdycontent">
+  <form (submit)="updateprofile()" style="margin: 20px">  <!-- (submit)="addUser($event)"-->
+    <fieldset style="background-color: #6c9dc6; border-radius: 8px">
+      <legend style="text-align: center; font-family: Berlin Sans FB; font-size: 30px; color:white">Manage Profile</legend>
+      <label style="font-family: Berlin Sans FB; font-size: 20px; color:white">First Name:</label>
+      <input type="text" [(ngModel)]="first_name" name="first_name" id="first_name" placeholder="Your First Name.." value="">
+
+      <label style="font-family: Berlin Sans FB; font-size: 20px; color:white">Last Name:</label>
+      <input type="text" [(ngModel)]="last_name" name="last_name" id="last_name" placeholder="Your Last Name.." required>
+
+      <label style="font-family: Berlin Sans FB; font-size: 20px; color:white">Password:</label>
+      <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="New Password" required>
+
+      <label style="font-family: Berlin Sans FB; font-size: 20px; color:white">Re-Type Password:</label>
+      <input type="password" [(ngModel)]="retypepwd" name="retypepwd" id="retypepwd" placeholder="Re-Type your Password" required>
+
+      <input type="submit" value="Save changes" style="border-radius: 8px" >
+
+    </fieldset>
+
+  </form>
+
+  <fieldset style="background-color: #6c9dc6; border-radius: 8px">
+    <legend style="text-align: center; font-family: Berlin Sans FB; font-size: 30px; color:white">De-activate Profile</legend>
+
+    <input type="submit" value="Delete Profile" style="border-radius: 8px;background-color: red;" (click)="deleteprofile()" >
+
+  </fieldset>
+
+</div>

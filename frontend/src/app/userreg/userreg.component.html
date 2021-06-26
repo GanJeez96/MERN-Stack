@@ -1,0 +1,134 @@
+<style>
+  div.welcome{
+    position: absolute;
+    width: 100%;
+    left:0;
+    top:0;
+
+    background-color: royalblue;
+    height:1000px;
+    color: white;
+  }
+
+  #hometitle{
+    text-align: center;
+    padding-top:40px;
+    margin-bottom: 0px;
+    font-size: 150px;
+    margin-top: 0px;
+    font-family: "Berlin Sans FB";
+  }
+
+  #titledes{
+    text-align: center;
+    padding-top:0px;
+    font-size: 40px;
+    margin-top: 0px;
+    font-family: "Bell MT";
+  }
+
+  #signup{
+    position:absolute;
+    left:200px;
+    width:500px;
+    height:500px;
+  }
+
+  #login{
+    position:absolute;
+    right:185px;
+    width:500px;
+    height:500px;
+  }
+
+  input[type=text],input[type=email],input[type=password]{
+    font-family:Sans-serif;
+    width: 100%;
+    padding-top: 12px ;
+    padding-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  <!-- J.R.Gangesh -->
+  input[type=submit] {
+    font-family:Sans-serif;
+    font-size: 18px;
+    width: 80%;
+    background-color: dodgerblue;
+    color: white;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-left: 40px ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: deepskyblue;
+  }
+</style>
+
+
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<div class="welcome">
+  <!-- J.R.Gangesh -->
+  <p id="hometitle">EVENTO</p>
+  <br>
+  <p id="titledes"><i>An event organizing platform</i></p>
+  <hr>
+
+  <div id="signup">
+
+    <form  (submit)="addUser()"  style="margin: 20px">  <!-- (submit)="addUser($event)"-->
+      <fieldset style="background-color: #6c9dc6; border-radius: 8px">
+        <legend style="text-align: center; font-family: Calibri; font-size: 30px">Sign Up</legend>
+        <label style="font-family: Calibri; font-size: 20px">First Name:</label>
+        <input type="text" [(ngModel)]="first_name" name="first_name" id="first_name" placeholder="Your First Name.." value="">
+
+        <label style="font-family: Calibri; font-size: 20px">Last Name:</label>
+        <input type="text" [(ngModel)]="last_name" name="last_name" id="last_name" placeholder="Your Last Name.." required>
+
+        <label style="font-family: Calibri; font-size: 20px">Email:</label>
+        <input type="email" [(ngModel)]="email" name="email" id="email" placeholder="Your Email Address" required>
+
+        <label style="font-family: Calibri; font-size: 20px">Password:</label>
+        <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="Your Password" required>
+
+        <label style="font-family: Calibri; font-size: 20px">Re-Type Password:</label>
+        <input type="password" [(ngModel)]="retypepwd" name="retypepwd" id="retypepwd" placeholder="Re-enter your Password" required>
+
+        <input type="submit" value="Register" style="border-radius: 8px" >
+
+      </fieldset>
+      <!-- J.R.Gangesh -->
+    </form>
+  </div>
+
+  <div id="login">
+    <form (submit)="loginuser()" style="margin: 20px">
+      <fieldset style="background-color: #6c9dc6; border-radius: 8px">
+        <legend style="text-align: center; font-family: Calibri; font-size: 30px">Login</legend>
+
+        <label style="font-family: Calibri; font-size: 20px">Email:</label>
+        <input type="email" [(ngModel)]="username" name="username" id="loginemail" placeholder="Your Email Address">
+
+        <label style="font-family: Calibri; font-size: 20px">Password:</label>
+        <input type="password" [(ngModel)]="userpwd" name="userpwd" id="loginpwd" placeholder="Your Password">
+
+        <input type="submit" value="Login"  >
+
+      </fieldset>
+      <!-- J.R.Gangesh -->
+    </form>
+
+  </div>
+
+
+
+</div>
+

@@ -1,0 +1,192 @@
+<style>
+
+  #navtitle{
+    background-color: royalblue;
+    height:15%;
+    width:20%;
+    color: white;
+    position:fixed;
+    margin:-0.6%;
+    border-bottom:0px solid white;
+  }
+
+  #title{
+    font-family: "Berlin Sans FB";
+    font-size: 80px;
+    text-align: center;
+    padding: 0px;
+    border:0px;
+    margin:0px;
+  }
+
+  #nav{
+    list-style-type: none;
+    margin-left: -0.6%;
+    margin-top:7%;
+    padding: 0;
+    width: 20%;
+    background-color: royalblue;
+    height:85%;
+    position:fixed;
+  }
+
+  .navitems a{
+    color:white;
+    text-align: center;
+    display:block;
+    padding: 8%;
+    font-family: Berlin Sans FB;
+    font-size: 24px;
+    text-decoration: none;
+    border:0px solid white;
+  }
+
+  .navitems a:hover{
+    background-color: #6585e7;
+    color: white;
+  }
+
+  #bdycontent{
+    width:80%;
+    height:90%;
+    background-color: #5f91ec;
+    margin-top: 4%;
+    margin-left:19.5%;
+    padding:0;
+    position:fixed;
+    overflow: auto;
+  }
+
+  #topnav{
+    width:80%;
+    height:10%;
+    background-color: royalblue;
+    position: fixed;
+    margin-left:19.5%;
+    margin-top:-0.6%;
+  }
+
+  #welcome{
+    color:white;
+    font-family: Calibri;
+    margin-top: 1.5%;
+    margin-left:85%;
+  }
+
+  #welcome a{
+    color:white;
+    font-family: Calibri;
+    margin-left: 15%;
+  }
+
+
+  input[type=text],input[type=email],input[type=date]{
+    font-family:Sans-serif;
+    width: 100%;
+    padding-top: 12px ;
+    padding-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width:50%;
+    border: none;
+    border-radius: 4px;
+  }
+  #editbtn{
+    background-color: green;
+    color:white;
+
+  }
+  #editbtn:hover{
+    background-color: lightgreen ;
+    color: green;
+  }
+
+  #deletebtn{
+    background-color: red;
+    color:white;
+  }
+  #deletebtn:hover{
+    background-color: lightpink;
+    color:red;
+  }
+
+  td,th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  th{
+    background-color: teal; /*#4CAF50;*/
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+
+  tr:nth-child(even){background-color: lightblue;}
+  tr:nth-child(odd){background-color: lightsteelblue;}
+  tr:hover {background-color: #ddd;}
+
+  #pname{
+    width:50%;
+  }
+  #pdate{
+    width:30%;
+  }
+  #pbtn{
+    width:20%;
+    text-align:center;
+  }
+
+
+</style>
+
+
+
+<div id="navtitle">
+  <p id="title"><u>Evento</u></p>
+</div>
+
+<ul id="nav">
+  <li class="navitems"><a routerLink="/dashboard">New Project</a></li>
+  <li class="navitems"><a routerLink="/myprojects">My Projects</a></li>
+  <li class="navitems"><a routerLink="/myprofile">My Profile</a></li>
+</ul>
+
+<div id="topnav">
+  <div id="welcome">
+    Welcome {{username}}
+    <br><a routerLink="">Logout</a>
+  </div>
+</div>
+
+
+<!-- All other panels will be displayed within this div container -->
+
+
+<div id="bdycontent">
+
+
+
+  <table   >
+    <tr>
+      <th>Project Name</th>
+      <th>Date</th>
+      <th> </th>
+    </tr>
+    <tr *ngFor="let project of allprojects">
+      <td id="pname">{{project.projname}}</td>
+      <td id="pdate">{{project.projdate}}</td>
+      <td id="pbtn"><input id="editbtn" type="submit" (click)="findoneproject(project._id)" value="edit"><input id="deletebtn" type="submit" (click)="deleteproject(project._id)" value="delete"></td>
+    </tr>
+  </table>
+
+
+</div>
